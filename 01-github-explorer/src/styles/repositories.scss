@@ -8,9 +8,30 @@ section.repository-list {
   ul {
     list-style: none;
 
+    strong {
+      border-bottom-left-radius: 4px;
+      border-top-left-radius: 4px;
+      border-left: 0px solid transparent;
+      transition-property: padding color;
+      transition-duration: .3s;
+    }
+
     li {
       & + li {
         margin-top: 20px;
+      }
+
+      &:not(:last-of-type) {
+        padding-bottom: 20px;
+        border-bottom: 1px solid #ccc;
+      }
+
+      &:hover {
+        strong {
+          color: #7247d6;
+          border-left: 8px solid #8257e6;
+          padding-left: 10px;
+        }
       }
 
       p {
