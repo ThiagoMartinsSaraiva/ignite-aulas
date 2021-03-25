@@ -1,6 +1,5 @@
 import { RepositoryItem } from "./RepositoryItem"
 import '../styles/repositories.scss'
-import { useEffect, useState } from "react"
 
 interface Repository {
   name: string
@@ -8,23 +7,21 @@ interface Repository {
   html_url: string
 }
 
-export function RepositoryList() {
-  const [repositories, setRepositories] = useState<Repository[]>([])
+interface RepositoryListProps {
+  repositories: Repository[]
+}
 
-  useEffect(() => {
-    fetch('https://api.github.com/orgs/rocketseat/repos')
-      .then(response =>response.json())
-      .then(data => setRepositories(data))
-  }, [])
-
+export function RepositoryList(props: RepositoryListProps) {
   return (
     <section className="repository-list">
       <h1>Lista de repositórios</h1>
       <ul>
         {
-          repositories.map(repository => (
-            <RepositoryItem key={repository.name} repository={repository} />
-          ))
+          props.repositories.length ? (
+            props.repositories.map(repository => (
+              <RepositoryItem key={repository.name} repository={repository} />
+            ))
+          ) : "Nenhum repositório encontrado"
         }
       </ul>
     </section>

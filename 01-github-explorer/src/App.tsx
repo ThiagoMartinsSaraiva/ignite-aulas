@@ -1,10 +1,11 @@
-import { RepositoryList } from './components/RepositoryList'
+import { RepositoryFilter } from './components/RepositoryFilter'
+import { RepositoriesProvider } from './hooks/Repository'
 import './styles/global.scss'
 
 export function App() {
   return (
-    <>
-      <RepositoryList />
-    </>
+    <RepositoriesProvider>
+      <RepositoryFilter />
+    </RepositoriesProvider>
   )
 }

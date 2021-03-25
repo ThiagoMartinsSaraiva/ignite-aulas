@@ -49,3 +49,28 @@ section.repository-list {
     }
   }
 }
+
+div.form-container {
+  margin: 40px;
+
+  form {
+    display: flex;
+    gap: 10px;
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      gap: 10px;
+
+      input, select {
+        height: 55px;
+        padding: 5px;
+        border: none;
+        outline: none;
+        border-bottom: 1px solid #444;
+        font-size: 16px;
+      }
+    }
+  }
+}
